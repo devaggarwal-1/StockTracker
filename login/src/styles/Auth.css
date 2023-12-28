@@ -1,0 +1,97 @@
+.authContainer {
+    display: flex;
+    min-height: 90vh;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.authSection {
+    width: 100%;
+    max-width: 420px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+.authSection form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    padding-bottom: 1rem;
+}
+
+.authSection a,
+.authSection :visited {
+    color: #fff;
+}
+
+.authSection input[type="text"],
+.authSection input[type="password"],
+.authSection button,
+.authSection textarea {
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+}
+
+.authSection label,
+.authSection button {
+    margin-top: 1rem;
+}
+
+.authSection button {
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.authSection .instructions {
+    font-size: 0.75rem;
+    border-radius: 0.5rem;
+    background: #000;
+    color: #fff;
+    padding: 0.25rem;
+    position: relative;
+    bottom: -10px;
+}
+
+.authSection .instructions>svg {
+    margin-right: 0.25rem;
+}
+
+.authSection .offscreen {
+    position: absolute;
+    left: -9999px;
+}
+
+.authSection .hide {
+    display: none;
+}
+
+.authSection .valid {
+    color: limegreen;
+    margin-left: 0.25rem;
+}
+
+.authSection .invalid {
+    color: red;
+    margin-left: 0.25rem;
+}
+
+.authSection .errmsg {
+    background-color: lightpink;
+    color: firebrick;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.authSection .line {
+    display: inline-block;
+}

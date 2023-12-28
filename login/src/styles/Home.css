@@ -1,0 +1,35 @@
+.home {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    justify-content: center;
+
+}
+
+.home_container {
+    display: flex;
+    gap: 50px;
+    width: 80%;
+}
+
+.home_container h2 {
+    color: black;
+}
+
+.gainers {
+    width: 100%;
+}
+
+.losers {
+    width: 100%;
+}
+
+.stockTable {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 100%;
+    margin-top: 10px;
+}

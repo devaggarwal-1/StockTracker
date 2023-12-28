@@ -1,0 +1,110 @@
+.stock-page {
+    /* border: 2px solid red; */
+    color: black;
+    background-color: white;
+    width: 80%;
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.heading {
+    display: flex;
+    gap: 50px;
+    padding: 20px;
+}
+
+.stock-info {
+    display: flex;
+    gap: 30px;
+    margin-top: 50px;
+    height: 80vh;
+    /* border: 2px solid red; */
+}
+
+.price-chart-container {
+    flex: 3;
+
+}
+
+/* Price Container */
+.priceContainer {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 0 0 20px 20px;
+}
+
+.priceContainer h2 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.change-percentage {
+    padding: 5px;
+    background: rgb(186, 81, 81);
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.price-change {
+    color: rgb(186, 81, 81);
+}
+
+
+.stock-chart {
+    width: 100%;
+    height: 86.5%;
+    padding: 10px;
+    border: 2px solid rgb(99, 96, 96);
+    border-radius: 10px;
+}
+
+
+
+/* About Company */
+
+.about-company {
+    border: 2px solid rgb(206, 205, 205);
+    border-radius: 10px;
+    flex: 1;
+    padding: 10px;
+    overflow: scroll;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* height: fit-content; */
+
+}
+
+
+.about-company::-webkit-scrollbar {
+    width: 5px;
+    scroll-behavior: smooth;
+}
+
+.about-company::-webkit-scrollbar-track {
+    margin: 10px;
+    border-radius: 20px;
+}
+
+.about-company::-webkit-scrollbar-thumb {
+    background-color: rgb(125, 120, 120);
+    border-radius: 20px;
+    border: transparent;
+
+}
+
+.about-company::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(73, 71, 71);
+    border-radius: 20px;
+    border: transparent;
+}
+
+
+.about-company p {
+    font-size: 13.5px;
+
+}

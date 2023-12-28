@@ -1,0 +1,55 @@
+.hidden {
+    display: none;
+}
+
+.stock-card-container {
+    display: flex;
+    /* flex-direction: column; */
+    gap: 15px;
+    padding: 10px;
+    color: black;
+    align-items: left;
+    cursor: pointer;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.stock-card-container:hover {
+    background-color: whitesmoke;
+
+}
+
+.stock-name {
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.stock-price {
+    font-weight: bold;
+    font-size: 20px;
+    /* border: 2px solid red; */
+    /* position: absolute; */
+    /* margin-left: 200px; */
+
+}
+
+.price-change.positive {
+    color: green;
+}
+
+.price-change.negative {
+    color: red;
+}
+
+.price-change {
+    display: flex;
+    font-size: 15px;
+    gap: 5px;
+    align-items: center;
+}
+
+.addToWatchlist-btn:hover {
+    color: gray;
+}
