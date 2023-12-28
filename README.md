@@ -9,13 +9,13 @@ Real-time Updates: Stay informed with real-time updates on stock prices and perf
 
 
 # Features
-User Authentication: Secure user registration and login functionality to personalize stock tracking.
+- User Authentication: Secure user registration and login functionality to personalize stock tracking.
 
-Stock Search: Utilize the powerful stock search feature to get real-time information on a wide range of stocks.
+- Stock Search: Utilize the powerful stock search feature to get real-time information on a wide range of stocks.
 
-Portfolio Management: Easily track and manage your stock portfolio with an intuitive and user-friendly interface.
+- Portfolio Management: Easily track and manage your stock portfolio with an intuitive and user-friendly interface.
 
-Real-time Updates: Stay informed with real-time updates on stock prices and performance.
+- Real-time Updates: Stay informed with real-time updates on stock prices and performance.
 
 
 # This is still a work in progress. Lots of changes to make and new functionalities to work on :)
