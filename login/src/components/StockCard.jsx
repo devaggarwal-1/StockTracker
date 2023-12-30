@@ -65,6 +65,9 @@ function StockCard({ symbol, price, change, changesPercentage, inWatchlist, logg
             } else {
                 console.log("remove")
                 try {
+                    if (fromPage == 'Watchlist') {
+                        setHidden(true)
+                    }
                     const newInWatchlist = !isInWatchlist;
                     setIsInWatchlist(newInWatchlist);
 
@@ -79,9 +82,7 @@ function StockCard({ symbol, price, change, changesPercentage, inWatchlist, logg
                         }
                     );
 
-                    if (fromPage == 'Watchlist') {
-                        setHidden(true)
-                    }
+
 
                     console.log(response)
                 } catch (error) {

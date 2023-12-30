@@ -74,11 +74,11 @@ function Navbar() {
                     <div className="navbar">
                         <div className="navbar-container">
                             <ul className="nav-links">
-                                <li className='logo'><Link to='/' >StockTracker</Link ></li >
+                                <li className='logo'><Link to='/' ><h2>StockTracker</h2></Link ></li >
                                 <li className="animate"><Link to='/'>Home</Link></li>
+                                <li className="animate"><Link to='/news'>News</Link></li>
                                 <li className='animate'><Link to='/register'>Register</Link></li>
                                 <li className="animate"><Link to='/login'>Sign In</Link></li>
-                                <li className="animate"><a href="#">Feedback</a></li>
                             </ul >
                             <form className='searchContainer' onSubmit={handleSearch}>
 

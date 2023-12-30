@@ -7,6 +7,7 @@ import Navbar from './components/Navbar'
 import './styles/App.css'
 import StockPage from './StockPage'
 import Watchlist from './Watchlist'
+import News from './News'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
           <Route path='/' element={<Home />}></Route>
           <Route path='/stock/:s' element={<StockPage />}> </Route>
           <Route path='/watchlist' element={<Watchlist />}></Route>
+          <Route path='/news' element={<News />} ></Route>
         </Routes>
       </div>
     </BrowserRouter >

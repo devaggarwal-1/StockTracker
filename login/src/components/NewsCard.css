@@ -1,0 +1,79 @@
+:root {
+    /*   color variables */
+    --clr-primary: #304ffe;
+    --clr-primary-hover: #29e6a7;
+    --clr-primary-dark: #039d69;
+    --clr-gray100: #f0f7f8;
+    --clr-gray200: #cfd8dc;
+    --clr-gray300: #a7b7be;
+    --clr-gray400: #6b7e86;
+    --clr-gray500: #425a65;
+
+    /*   border radius */
+    --radius: 0.2rem;
+}
+
+
+.card {
+    overflow: hidden;
+    border: 1px solid var(--clr-gray200);
+    box-shadow: 4px 4px var(--clr-gray200);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: border 200ms ease-in, box-shadow 200ms ease-in;
+    width: 90%;
+    /* border: 2px solid red; */
+}
+
+.card-img {
+    height: 6.5rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-title {
+    padding: 0.5rem;
+
+}
+
+.card-desc {
+    padding: 0 0.5rem;
+    font-size: 16px;
+}
+
+.card-link {
+    text-decoration: none;
+    padding: 0.5rem;
+    font-weight: bold;
+    color: var(--clr-primary);
+}
+
+.arrowIcon {
+    position: relative;
+    left: 0.5rem;
+}
+
+.card:hover {
+    border: 1px solid var(--clr-primary);
+    box-shadow: 8px 8px var(--clr-primary);
+
+    .arrowIcon {
+        animation: arrow 0.5s ease-in-out infinite alternate;
+    }
+
+    .card-title {
+        text-decoration: underline;
+    }
+}
+
+@keyframes arrow {
+    0% {
+        left: 0.5rem;
+    }
+
+    100% {
+        left: 1.5rem;
+    }
+}

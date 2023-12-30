@@ -2,18 +2,18 @@
     display: flex;
     position: fixed;
     width: 100%;
-
+    z-index: 999;
 }
 
 .navbar-container {
     background: #fff;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     display: flex;
-    /* align-items: center; */
     width: 100%;
+    height: 200%;
     position: absolute;
-    padding: 20px;
-    justify-content: space-around;
+    padding: 30px;
+    justify-content: space-between;
 }
 
 .nav-links {
@@ -55,9 +55,16 @@
     text-decoration: none;
 }
 
-.logo {
-    font-size: 34px;
-    font-weight: bold;
+
+
+.logo h2 {
+    /* background-color: #f3ec78; */
+    background-image: linear-gradient(45deg, #304ffe, #29e6a7);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
 }
 
 

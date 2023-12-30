@@ -1,0 +1,19 @@
+.news h2 {
+    margin: 1rem 0 0.5rem 1rem;
+    color: #304ffe;
+}
+
+.news hr {
+    width: 95%;
+    margin-left: 1rem;
+}
+
+.newsContainer {
+    color: black;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 0.3fr));
+    gap: 1rem;
+    justify-content: center;
+    /* border: 2px solid red; */
+    padding: 20px;
+}
