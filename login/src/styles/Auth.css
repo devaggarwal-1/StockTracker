@@ -3,19 +3,21 @@
     min-height: 90vh;
     justify-content: center;
     align-items: center;
-
+    background: #f1f5f9;
+    color: black;
 }
 
 .authSection {
-    width: 100%;
-    max-width: 420px;
-    min-height: 400px;
+    padding: 2rem 2.5rem;
+    border: none;
+    outline: none;
+    border-radius: 0.25rem;
+    background-color: white;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    padding: 1rem;
-    background-color: rgba(0, 0, 0, 0.4);
-
+    gap: 30px;
+    max-width: 450px;
 }
 
 .authSection form {
@@ -24,21 +26,53 @@
     justify-content: space-evenly;
     flex-grow: 1;
     padding-bottom: 1rem;
+    align-items: center;
+    gap: 20px;
 }
 
-.authSection a,
-.authSection :visited {
-    color: #fff;
+.title {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
+
+.title h1 {
+    font-weight: 500;
+}
+
+.title p {
+    font-size: 14px;
+}
+
+.title p a {
+    text-decoration: none;
+    color: #1a73e8;
+}
+
+.title p a:hover {
+    text-decoration: underline;
+}
+
+
 
 .authSection input[type="text"],
 .authSection input[type="password"],
 .authSection button,
 .authSection textarea {
-    font-family: 'Nunito', sans-serif;
-    font-size: 22px;
-    padding: 0.25rem;
-    border-radius: 0.5rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: inherit;
+    width: 100%;
+    height: auto;
+    padding: 0.75rem 1.25rem;
+    border: none;
+    outline: none;
+    border-radius: 2rem;
+    color: black;
+    background: #f1f5f9;
+    text-transform: unset;
+    text-rendering: optimizeLegibility;
 }
 
 .authSection label,
@@ -47,18 +81,33 @@
 }
 
 .authSection button {
-    padding: 0.5rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: inherit;
     cursor: pointer;
+    width: 60%;
+    padding: 0.65rem 1.25rem;
+    border: none;
+    outline: none;
+    border-radius: 2rem;
+    background: #1a73e8;
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    text-transform: capitalize;
+    text-rendering: optimizeLegibility;
 }
 
 .authSection .instructions {
-    font-size: 0.75rem;
+    font-size: 10px;
     border-radius: 0.5rem;
     background: #000;
     color: #fff;
     padding: 0.25rem;
     position: relative;
-    bottom: -10px;
+    width: 100%;
+
 }
 
 .authSection .instructions>svg {
@@ -77,11 +126,17 @@
 .authSection .valid {
     color: limegreen;
     margin-left: 0.25rem;
+    position: absolute;
+    right: 12px;
+    top: 20px;
 }
 
 .authSection .invalid {
     color: red;
-    margin-left: 0.25rem;
+    position: absolute;
+    right: 12px;
+    top: 20px;
+
 }
 
 .authSection .errmsg {
@@ -94,4 +149,10 @@
 
 .authSection .line {
     display: inline-block;
+}
+
+.input_container {
+    display: flex;
+    align-items: center;
+    position: relative;
 }

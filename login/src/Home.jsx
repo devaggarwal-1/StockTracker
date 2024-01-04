@@ -3,15 +3,27 @@ import Cookies from 'js-cookie'
 import Navbar from './components/Navbar'
 import StockCard from './components/StockCard'
 import './styles/Home.css'
-import { getAllGainers, getAllLosers } from './api/FinancialModelingApi'
+import { getAllGainers, getAllLosers, getCompanyProfile } from './api/FinancialModelingApi'
 import axios from './api/axios'
+import { useNavigate } from 'react-router-dom'
+
 
 
 function Home() {
 
+    //States
+
     const [loggedInUser, setLoggedInUser] = useState(false)
     const [watchlist, setWatchlist] = useState([])
     // const [loggedIn, setLoggedIn] = useState(false)
+    const [tickerList, setTickerList] = useState(
+        [
+            ['TSLA', 240.72, -7.7, 'https://financialmodelingprep.com/image-stock/TSLA.png'],
+            ['MSFT', 371.18, 0.31, 'https://financialmodelingprep.com/image-stock/MSFT.png'],
+            ['AAPL', 184.435, -1.205, 'https://financialmodelingprep.com/image-stock/AAPL.png'],
+            ['GOOGL', 139.04, 0.87, 'https://financialmodelingprep.com/image-stock/GOOGL.png'],
+            ['DIS', 91.4598, 0.7498, 'https://financialmodelingprep.com/image-stock/DIS.png']
+        ])
     const [gainers, setGainers] = useState(
         [
             {
@@ -119,6 +131,8 @@ function Home() {
 
     ])
 
+    const nav = useNavigate()
+
 
     // useEffect(() => {
 
@@ -165,79 +179,160 @@ function Home() {
 
         getWatchlist()
 
+        // const getTickerStocks = async () => {
+
+        //     const tickerSymbols = ['TSLA', 'MSFT', 'AAPL', 'GOOGL', 'DIS']
+        //     setTickerList([])
+        //     for (const s of tickerSymbols) {
+        //         const res = await getCompanyProfile(s)
+        //         setTickerList(prev => [...prev, [res.symbol, res.price, res.changes, res.image]])
+        //     }
+
+        // }
+
+        // getTickerStocks()
+
     }, [])
 
 
+    const onTickerClick = (e) => {
+        nav(`/stock/${e}`)
+    }
 
     return (
         <div className="home">
             <div className="home_container">
 
-                {/* Top Stock Gainers Section */}
-                <div className="gainers">
-                    <h2>Top Gainers</h2>
-                    <div className="stockTable">
-                        {gainers.map((stock, i) => {
-                            let inWatchlist = false
-                            if (watchlist.includes(stock.symbol)) {
-                                inWatchlist = true
-                            } else {
-                                inWatchlist = false
-                            }
+                <div className="ticker-tape">
+
+                    <div className="ticker" >
+
+                        {tickerList.map((stock, i) => {
+
+                            const initial = (stock[1] + stock[2])
+
+                            let tickerChangePercentage = (stock[1] - initial) / initial * 100
+                            tickerChangePercentage = (tickerChangePercentage - (tickerChangePercentage * 2)).toFixed(2)
+                            const color = stock[2] > 0 ? "green" : "red"
 
                             return (
+                                <div className="ticker-item" key={i} onClick={() => onTickerClick(stock[0])} >
+                                    <hr />
+                                    <div className="ticker-item-container">
+                                        <div className="ticker-info">
+                                            <img src={stock[3]} alt="" className='ticker-img' />
+                                            <p className="ticker-symbol">{stock[0]}</p>
+                                        </div>
+                                        <p className="ticker-price">{stock[1]}</p>
+                                        <div className="ticker-change" style={{ color: color }}>{stock[2]} <span><p className="ticker-change-percentage">({tickerChangePercentage}%)</p></span></div>
+                                    </div>
 
-                                < StockCard
-                                    key={i}
-                                    symbol={stock.symbol}
-                                    price={stock.price}
-                                    change={stock.change}
-                                    changesPercentage={stock.changesPercentage}
-                                    inWatchlist={inWatchlist}
-                                    loggedInUser={loggedInUser}
-                                    fromPage={"Home"}
-                                />
+                                </div>
                             )
+                        })
                         }
-                        )}
 
                     </div>
-                </div>
 
-                {/* Top Stock Losers Section */}
-                <div className="losers">
-                    <h2>Top Losers</h2>
-                    <div className="stockTable">
-                        {losers.map((stock, i) => {
+                    <div className="ticker" >
 
-                            let inWatchlist = false
-                            if (watchlist.includes(stock.symbol)) {
-                                inWatchlist = true
-                            } else {
-                                inWatchlist = false
-                            }
+                        {tickerList.map((stock, i) => {
+
+                            const initial = (stock[1] + stock[2])
+
+                            let tickerChangePercentage = (stock[1] - initial) / initial * 100
+                            tickerChangePercentage = (tickerChangePercentage - (tickerChangePercentage * 2)).toFixed(2)
+                            const color = stock[2] > 0 ? "green" : "red"
 
                             return (
+                                <div className="ticker-item" key={i} onClick={() => onTickerClick(stock[0])}>
+                                    <hr />
+                                    <div className="ticker-item-container">
+                                        <div className="ticker-info">
+                                            <img src={stock[3]} alt="" className='ticker-img' />
+                                            <p className="ticker-symbol">{stock[0]}</p>
+                                        </div>
+                                        <p className="ticker-price">{stock[1]}</p>
+                                        <div className="ticker-change" style={{ color: color }}>{stock[2]} <span><p className="ticker-change-percentage">({tickerChangePercentage}%)</p></span></div>
+                                    </div>
 
-                                < StockCard
-                                    key={i}
-                                    symbol={stock.symbol}
-                                    price={stock.price}
-                                    change={stock.change}
-                                    changesPercentage={stock.changesPercentage}
-                                    inWatchlist={inWatchlist}
-                                    loggedInUser={loggedInUser}
-                                    fromPage={"Home"}
-                                />
+                                </div>
                             )
+                        })
                         }
-                        )}
 
+                    </div>
+
+                </div>
+
+                <div className="gainers_losers_Container">
+
+                    {/* Top Stock Gainers Section */}
+                    <div className="gainers">
+                        <h2>Top Gainers</h2>
+                        <div className="stockTable">
+                            {gainers.map((stock, i) => {
+                                let inWatchlist = false
+                                if (watchlist.includes(stock.symbol)) {
+                                    inWatchlist = true
+                                } else {
+                                    inWatchlist = false
+                                }
+
+                                return (
+
+                                    < StockCard
+                                        key={i}
+                                        symbol={stock.symbol}
+                                        price={stock.price}
+                                        change={stock.change}
+                                        changesPercentage={stock.changesPercentage}
+                                        inWatchlist={inWatchlist}
+                                        loggedInUser={loggedInUser}
+                                        fromPage={"Home"}
+                                    />
+                                )
+                            }
+                            )}
+
+                        </div>
+                    </div>
+
+                    {/* Top Stock Losers Section */}
+                    <div className="losers">
+                        <h2>Top Losers</h2>
+                        <div className="stockTable">
+                            {losers.map((stock, i) => {
+
+                                let inWatchlist = false
+                                if (watchlist.includes(stock.symbol)) {
+                                    inWatchlist = true
+                                } else {
+                                    inWatchlist = false
+                                }
+
+                                return (
+
+                                    < StockCard
+                                        key={i}
+                                        symbol={stock.symbol}
+                                        price={stock.price}
+                                        change={stock.change}
+                                        changesPercentage={stock.changesPercentage}
+                                        inWatchlist={inWatchlist}
+                                        loggedInUser={loggedInUser}
+                                        fromPage={"Home"}
+                                    />
+                                )
+                            }
+                            )}
+
+                        </div>
                     </div>
                 </div>
 
             </div>
-        </div>
+        </div >
     )
 }
 

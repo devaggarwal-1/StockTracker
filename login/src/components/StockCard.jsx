@@ -6,6 +6,7 @@ import { faSquarePlus, faSquareMinus } from '@fortawesome/free-regular-svg-icons
 import { useNavigate } from 'react-router-dom'
 import axios from '../api/axios'
 import Cookies from 'js-cookie'
+import { addToWatchlist, removeFromWatchlist } from '../helpers/UserHelper'
 
 function StockCard({ symbol, price, change, changesPercentage, inWatchlist, loggedInUser, fromPage }) {
 
@@ -42,20 +43,13 @@ function StockCard({ symbol, price, change, changesPercentage, inWatchlist, logg
             //if the stock isn't in watchlist , add it to watchlist
             if (!isInWatchlist) {
 
+                //add to watchlist
                 console.log("add")
                 try {
                     const newInWatchlist = !isInWatchlist;
                     setIsInWatchlist(newInWatchlist);
-
-                    const url = '/addWatchlist'
                     const username = Cookies.get('username')
-                    const response = await axios.post(url,
-                        JSON.stringify({ username: username, stock: symbol }),
-                        {
-                            headers: { 'Content-Type': 'application/json' },
-                            withCredentials: true
-                        }
-                    );
+                    const res = addToWatchlist(username, symbol)
 
                 } catch (error) {
                     console.log(error)
@@ -70,21 +64,11 @@ function StockCard({ symbol, price, change, changesPercentage, inWatchlist, logg
                     }
                     const newInWatchlist = !isInWatchlist;
                     setIsInWatchlist(newInWatchlist);
-
-                    const url = '/removeWatchlist'
                     const username = Cookies.get('username')
 
-                    const response = await axios.post(url,
-                        JSON.stringify({ username: username, stock: symbol }),
-                        {
-                            headers: { 'Content-Type': 'application/json' },
-                            withCredentials: true
-                        }
-                    );
+                    const res = removeFromWatchlist(username, symbol)
 
-
-
-                    console.log(response)
+                    console.log(res)
                 } catch (error) {
                     console.log(error)
                 }

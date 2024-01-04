@@ -3,10 +3,14 @@ import './styles/stockpage.css'
 import TradingViewWidget from "./components/TradingViewWidget.jsx"
 import { useParams } from 'react-router-dom'
 import { stockQuote, getCompanyProfile } from './api/FinancialModelingApi.js'
-
+import Cookies from 'js-cookie'
+import axios from './api/axios'
+import { addToWatchlist, removeFromWatchlist } from './helpers/UserHelper.js'
 
 function StockPage() {
     const { s } = useParams()
+    const [isInWatchlist, setIsInWatchlist] = useState(false)
+    const [loggedInUser, setLoggedInUser] = useState('')
     const [stock, setStock] = useState(
         {
             symbol: 'TSLA',
@@ -135,62 +139,126 @@ function StockPage() {
             "78725",
     })
 
-    // useEffect(() => {
+    useEffect(() => {
 
 
-    //     const searchStockQuote = async () => {
-    //         const data = await stockQuote(s);
-    //         await setStock(data);
-    //         console.log(data)
-    //     }
+        const searchStockQuote = async () => {
+            const data = await stockQuote(s);
+            await setStock(data);
+            // console.log(data)
+        }
 
 
-    //     const searchCompanyProfile = async () => {
-    //         const data = await getCompanyProfile(s)
-    //         await setCompanyProfile(data)
-    //     }
+        const searchCompanyProfile = async () => {
+            const data = await getCompanyProfile(s)
+            await setCompanyProfile(data)
+        }
+
+        const checkWatchlist = async () => {
+            const token = Cookies.get('token')
+
+            if (token) {
+                const username = Cookies.get('username')
+                setLoggedInUser(username)
+                const url = `/watchlist/${username}`
+                try {
+                    const response = await axios.get(url,
+                        {
+                            headers: { 'Content-Type': 'application/json' },
+                            withCredentials: true
+                        }
+                    );
+
+                    if (response.data.includes(s)) {
+                        setIsInWatchlist(true)
+                    }
+
+                } catch (error) {
+                    console.log(error)
+                }
+            }
+        }
+
+        searchStockQuote()
+        searchCompanyProfile()
+        checkWatchlist()
+
+    }, [])
 
 
-    //     searchStockQuote()
-    //     searchCompanyProfile()
-    //     console.log(stock)
 
-    // }, [])
+    const handleAddToWatchlist = () => {
 
+        if (loggedInUser) {
+            try {
+                const res = addToWatchlist(loggedInUser, s)
+                console.log(res)
+                setIsInWatchlist(true)
+            } catch (error) {
+                console.log(error)
+            }
+        } else {
+            alert("Login")
+        }
+    }
 
+    const handleRemoveFromWatchlist = () => {
+
+        try {
+            const res = removeFromWatchlist(loggedInUser, s)
+            console.log(res)
+            setIsInWatchlist(false)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
 
     return (
         <div className='stock-page'>
 
-            <div className="heading">
-                <h3>{stock.symbol}</h3>
-                <button >Add to WatchList</button>
-            </div>
-            <hr />
+            <div className="container">
+                <div className="heading">
 
-            <div className="stock-info">
+                    <div className="stock-name-container">
+                        <img src={companyProfile.image} alt="" className='stock-image' />
+                        <div className="stock-name">
+                            <h3>{stock.name}</h3>
+                            <p>{stock.symbol}</p>
+                        </div>
+                    </div>
+                    {isInWatchlist ?
+                        <button onClick={handleRemoveFromWatchlist} >Remove from WatchList</button>
+                        :
+                        <button onClick={handleAddToWatchlist} >Add to WatchList</button>
+                    }
 
-                <div className="price-chart-container">
+                </div>
+                <hr />
 
-                    <div className="priceContainer">
-                        <h2 className='stock-price'>${stock.price}</h2>
-                        <p className="change-percentage">{stock.changesPercentage}%</p>
-                        <p className="price-change">{stock.change} Today</p>
+                <div className="stock-info">
+
+                    <div className="price-chart-container">
+
+                        <div className="priceContainer">
+                            <h2 className='stock-price'>${stock.price}</h2>
+                            <p className="change-percentage">{parseFloat(stock.changesPercentage).toFixed(2)}%</p>
+                            <p className="price-change">{stock.change} Today</p>
+                        </div>
+
+                        <div className="stock-chart">
+                            <TradingViewWidget stockSymbol={stock.symbol} />
+                        </div>
+
                     </div>
 
-                    <div className="stock-chart">
-                        <TradingViewWidget stockSymbol={stock.symbol} />
+                    <div className="about-company">
+                        <h2>About</h2>
+                        <hr />
+                        <p className='stock-desc'>{companyProfile.description}</p>
                     </div>
 
                 </div>
-
-                <div className="about-company">
-                    <h2>About</h2>
-                    <hr />
-                    <p className='stock-desc'>{companyProfile.description}</p>
-                </div>
-
             </div>
         </div>
     )

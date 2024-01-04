@@ -107,31 +107,39 @@ const Register = () => {
                         <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">
                             {errMsg}
                         </p>
-                        <h1>Register</h1>
+                        <div className="title">
+                            <h1>Sign Up</h1>
+                            <p>
+                                Already Registered?&nbsp;
+                                <span className="line">
+                                    <Link to="/login">Sign In</Link>
+                                </span>
+                            </p>
+                        </div>
                         <form onSubmit={handleSubmit}>
 
-                            {/* Username */}
-                            <label htmlFor="username">
-                                Username :
+                            <div className="input_container">
+                                <input
+                                    type="text"
+                                    id="username"
+                                    ref={userRef}
+                                    autoComplete="off"
+                                    onChange={(e) => setUser(e.target.value)}
+                                    required
+                                    aria-invalid={validName ? "false" : " true"}
+                                    aria-describedby="uidnote"
+                                    onFocus={() => setUserFocus(true)}
+                                    onBlur={() => setUserFocus(false)}
+                                    placeholder="Username"
+                                />
                                 <span className={validName ? "valid" : "hide"}>
                                     <FontAwesomeIcon icon={faCheck} />
                                 </span>
                                 <span className={validName || !user ? "hide" : "invalid"}>
                                     <FontAwesomeIcon icon={faTimes} />
                                 </span>
-                            </label>
-                            <input
-                                type="text"
-                                id="username"
-                                ref={userRef}
-                                autoComplete="off"
-                                onChange={(e) => setUser(e.target.value)}
-                                required
-                                aria-invalid={validName ? "false" : " true"}
-                                aria-describedby="uidnote"
-                                onFocus={() => setUserFocus(true)}
-                                onBlur={() => setUserFocus(false)}
-                            />
+                            </div>
+
                             <p id="uidnote" className={userFocus && user && !validName ?
                                 "instructions" : "offscreen"}>
                                 <FontAwesomeIcon icon={faInfoCircle} />
@@ -141,46 +149,49 @@ const Register = () => {
                             </p>
 
                             {/* Password */}
-                            <label htmlFor="password">
-                                Password:
+
+                            <div className="input_container">
+                                <input
+                                    type="password"
+                                    id="password"
+                                    onChange={(e) => setPwd(e.target.value)}
+                                    value={pwd}
+                                    required
+                                    aria-invalid={validPwd ? "false" : "true"}
+                                    aria-describedby="pwdnote"
+                                    onFocus={() => setPwdFocus(true)}
+                                    onBlur={() => setPwdFocus(false)}
+                                    placeholder="Password"
+                                />
                                 <FontAwesomeIcon icon={faCheck} className={validPwd ? "valid" : "hide"} />
                                 <FontAwesomeIcon icon={faTimes} className={validPwd || !pwd ? "hide" : "invalid"} />
-                            </label>
-                            <input
-                                type="password"
-                                id="password"
-                                onChange={(e) => setPwd(e.target.value)}
-                                value={pwd}
-                                required
-                                aria-invalid={validPwd ? "false" : "true"}
-                                aria-describedby="pwdnote"
-                                onFocus={() => setPwdFocus(true)}
-                                onBlur={() => setPwdFocus(false)}
-                            />
+                            </div>
                             <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
                                 <FontAwesomeIcon icon={faInfoCircle} />
                                 8 to 24 characters.<br />
                                 Must include uppercase and lowercase letters, a number and a special character.<br />
-                                Allowed special characters: <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
+
                             </p>
 
                             {/* passwordMatch */}
-                            <label htmlFor="confirm_pwd">
-                                Confirm Password:
+
+                            <div className="input_container">
+                                <input
+                                    type="password"
+                                    id="confirm_pwd"
+                                    onChange={(e) => setMatchPwd(e.target.value)}
+                                    value={matchPwd}
+                                    required
+                                    aria-invalid={validMatch ? "false" : "true"}
+                                    aria-describedby="confirmnote"
+                                    onFocus={() => setMatchFocus(true)}
+                                    onBlur={() => setMatchFocus(false)}
+                                    placeholder="Confirm Password"
+
+                                />
                                 <FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? "valid" : "hide"} />
                                 <FontAwesomeIcon icon={faTimes} className={validMatch || !matchPwd ? "hide" : "invalid"} />
-                            </label>
-                            <input
-                                type="password"
-                                id="confirm_pwd"
-                                onChange={(e) => setMatchPwd(e.target.value)}
-                                value={matchPwd}
-                                required
-                                aria-invalid={validMatch ? "false" : "true"}
-                                aria-describedby="confirmnote"
-                                onFocus={() => setMatchFocus(true)}
-                                onBlur={() => setMatchFocus(false)}
-                            />
+                            </div>
                             <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
                                 <FontAwesomeIcon icon={faInfoCircle} />
                                 Must match the first password input field.
@@ -192,12 +203,7 @@ const Register = () => {
                             </button>
 
                         </form>
-                        <p>
-                            Already Registered? <br />
-                            <span className="line">
-                                <Link to="/login">Sign In</Link>
-                            </span>
-                        </p>
+
                     </section>
                 </div>
 

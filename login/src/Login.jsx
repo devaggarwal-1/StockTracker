@@ -79,10 +79,18 @@ function Login() {
                     {errMsg}
                 </p>
 
-                <h1>Sign In</h1>
+                <div className="title">
+                    <h1>Sign In</h1>
+                    <p>
+                        Need an Account?&nbsp;
+                        <span className='line'>
+                            <Link to="/register">Sign Up</Link>
+                        </span>
+                    </p>
+                </div>
 
                 <form onSubmit={handleSubmit}>
-                    <label htmlFor="username">Username :</label>
+                    {/* <label htmlFor="username">Username :</label> */}
                     <input
                         type="text"
                         id='username'
@@ -91,10 +99,11 @@ function Login() {
                         onChange={(e) => setUser(e.target.value)}
                         value={user}
                         required
+                        placeholder='Username'
 
                     />
 
-                    <label htmlFor="password">Password :</label>
+                    {/* <label htmlFor="password">Password :</label> */}
                     <input
                         type="password"
                         id='password'
@@ -102,17 +111,13 @@ function Login() {
                         onChange={(e) => setPwd(e.target.value)}
                         value={pwd}
                         required
+                        placeholder='Password'
                     />
 
                     <button >Sign In</button>
                 </form>
 
-                <p>
-                    Need an Account?<br />
-                    <span className='line'>
-                        <Link to="/register">Sign Up</Link>
-                    </span>
-                </p>
+
             </section>
         </div>
     )

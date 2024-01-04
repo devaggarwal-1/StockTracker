@@ -58,7 +58,6 @@
 
 
 .logo h2 {
-    /* background-color: #f3ec78; */
     background-image: linear-gradient(45deg, #304ffe, #29e6a7);
     background-size: 100%;
     -webkit-background-clip: text;
@@ -89,27 +88,3 @@
     left: 50%;
     transform: translateX(-50%);
 }
-
-/* 
-.nav-links li.upward a:before {
-    width: 100%;
-    bottom: -5px;
-    opacity: 0;
-}
-
-.nav-links li.upward a:hover:before {
-    bottom: 0px;
-    opacity: 1;
-}
-
-.nav-links li.forward a:before {
-    width: 100%;
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.4s ease;
-}
-
-.nav-links li.forward a:hover:before {
-    transform: scaleX(1);
-    transform-origin: left;
-} */

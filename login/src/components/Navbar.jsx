@@ -31,6 +31,8 @@ function Navbar() {
     const handleLogout = () => {
         Cookies.remove('token')
         Cookies.remove('username')
+        nav('/')
+        nav(0)
     }
 
     const handleSearch = async (e) => {
@@ -55,10 +57,10 @@ function Navbar() {
                 <div className="navbar">
                     <div className="navbar-container">
                         <ul className="nav-links">
-                            <li className='logo'><Link to='/' >StockTracker</Link ></li >
+                            <li className='logo'><Link to='/' ><h2>StockTracker</h2></Link ></li >
                             <li className='animate'><Link to='/'>Home</Link></li>
                             <li className='animate'><Link to='/watchlist'>WatchList</Link></li>
-                            <li className='animate'><a href="#">Services</a></li>
+                            <li className="animate"><Link to='/news'>News</Link></li>
                             <li className='animate'><a href='' onClick={handleLogout}>Logout</a></li>
                         </ul >
                         <form className='searchContainer' onSubmit={handleSearch}>

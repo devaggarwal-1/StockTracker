@@ -1,25 +1,72 @@
-.stock-page {
+.container {
     /* border: 2px solid red; */
     color: black;
-    background-color: white;
-    width: 80%;
-    padding: 20px;
+    /* background-color: white; */
+    width: 75%;
+    padding-top: 30px;
     margin: 0 auto;
     border-radius: 10px;
+
 }
 
 .heading {
     display: flex;
-    gap: 50px;
+    /* gap: 20px;    */
     padding: 20px;
+    align-items: center;
+    justify-content: space-between;
+
 }
+
+.stock-name-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.stock-image {
+    width: 10%;
+    height: 10%;
+}
+
+.stock-name {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.stock-name p {
+    font-size: 14px;
+    font-weight: 500;
+    padding-left: 2px;
+}
+
+
+.heading button {
+    background: #304ffe;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    font-size: 15px;
+}
+
+.heading button:hover {
+    background: #243ed3;
+}
+
+
 
 .stock-info {
     display: flex;
     gap: 30px;
-    margin-top: 50px;
+    margin-top: 20px;
     height: 80vh;
-    /* border: 2px solid red; */
 }
 
 .price-chart-container {
@@ -37,18 +84,20 @@
 
 .priceContainer h2 {
     font-size: 40px;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .change-percentage {
-    padding: 5px;
-    background: rgb(186, 81, 81);
-    font-size: 20px;
+    padding: 8px;
+    background: rgb(218, 91, 91);
+    font-size: 15px;
     border-radius: 10px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .price-change {
-    color: rgb(186, 81, 81);
+    color: red
 }
 
 

@@ -1,19 +1,111 @@
+* {
+    box-sizing: border-box;
+}
+
 .home {
     display: flex;
     width: 100%;
-    min-height: 100vh;
+    height: 115vh;
     justify-content: center;
+    padding: 7vh 0;
 
 }
 
+
 .home_container {
-    display: flex;
-    gap: 50px;
     width: 80%;
 }
 
+.ticker-tape {
+    background: #1e222d;
+    overflow: hidden;
+    display: flex;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    height: 9%;
+    /* width: 80%; */
+}
+
+.ticker-tape:hover .ticker {
+    animation-play-state: paused;
+}
+
+.ticker {
+    color: #c9ccd4;
+    display: inline-block;
+    display: flex;
+    animation: ticker 15s linear infinite;
+
+}
+
+
+
+.ticker-item {
+    font-size: 16px;
+    font-weight: 600;
+    width: 100%;
+    /* border: 2px solid red; */
+    width: 290px;
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: center;
+    height: 100%;
+    /* padding: 10px 0; */
+
+}
+
+.ticker-item-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+}
+
+.ticker-item hr {
+    height: 70%;
+    border-radius: 5px;
+    border: 0.1px solid rgb(96, 95, 95);
+}
+
+.ticker-item-container:hover {
+    background: rgb(56, 52, 52);
+    cursor: pointer;
+}
+
+.ticker-info {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    height: 100%;
+
+}
+
+.ticker-img {
+    height: 40%;
+    width: 40%;
+    object-fit: contain;
+    /* border: 2px solid red; */
+}
+
+.ticker-change {
+    display: flex;
+
+}
+
+
+.gainers_losers_Container {
+    display: flex;
+    gap: 50px;
+}
+
 .home_container h2 {
-    color: black;
+    color: white;
+    background: #304ffe;
+    padding: 5px;
+    width: 40%;
+    border-radius: 10px;
+    font-weight: 500;
 }
 
 .gainers {
@@ -32,4 +124,16 @@
     border-radius: 15px;
     width: 100%;
     margin-top: 10px;
+}
+
+/* Keyframers for ticker tape */
+
+@keyframes ticker {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
 }
