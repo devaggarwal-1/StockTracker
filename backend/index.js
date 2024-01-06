@@ -37,3 +37,5 @@ mongoose.connect('mongodb+srv://root:root@cluster0.kdpnm4i.mongodb.net/customer?
 app.listen(5000, () => {
     console.log("Server running on Port: 5000")
 })
+
+module.exports = app;
