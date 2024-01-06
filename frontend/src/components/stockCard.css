@@ -4,7 +4,6 @@
 
 .stock-card-container {
     display: flex;
-    /* flex-direction: column; */
     gap: 15px;
     padding: 10px;
     color: black;
@@ -18,38 +17,44 @@
 
 .stock-card-container:hover {
     background-color: whitesmoke;
-
+    position: relative;
 }
 
-.stock-name {
+.stock-card-container .stock-name {
     font-weight: 400;
     font-size: 25px;
+    width: 20%;
 }
 
-.stock-price {
+.stock-card-container .stock-price {
     font-weight: bold;
     font-size: 20px;
-    /* border: 2px solid red; */
-    /* position: absolute; */
-    /* margin-left: 200px; */
-
+    width: 20%;
 }
 
-.price-change.positive {
+.stock-card-container .price-change.positive {
     color: green;
 }
 
-.price-change.negative {
+.stock-card-container .price-change.negative {
     color: red;
 }
 
-.price-change {
+.stock-card-container .price-change {
     display: flex;
     font-size: 15px;
     gap: 5px;
     align-items: center;
+    left: 30%;
+    width: 30%;
+
+
 }
 
-.addToWatchlist-btn:hover {
+.stock-card-container .addToWatchlist-btn {
+    color: black;
+}
+
+.stock-card-container .addToWatchlist-btn:hover {
     color: gray;
 }

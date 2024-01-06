@@ -23,7 +23,7 @@ function NewsCard({ title, desc, url, image }) {
             <div className="card-body">
                 <img src={image} alt="" className='card-img' />
                 <h4 className="card-title">{title}</h4>
-                <p className="card-desc">{desc}</p>
+                <p className="card-desc">{desc.slice(0, 200)}...</p>
             </div>
             <a href={url} className='card-link' target='blank'>
                 Read Full Article

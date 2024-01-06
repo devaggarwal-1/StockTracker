@@ -134,24 +134,24 @@ function Home() {
     const nav = useNavigate()
 
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     const getGainers = async () => {
-    //         const data = await getAllGainers()
-    //         setGainers(data.slice(0, 10))
+        const getGainers = async () => {
+            const data = await getAllGainers()
+            setGainers(data.slice(0, 10))
 
-    //     }
-    //     const getLosers = async () => {
+        }
+        const getLosers = async () => {
 
-    //         const data = await getAllLosers()
-    //         setLosers(data.slice(0, 10))
+            const data = await getAllLosers()
+            setLosers(data.slice(0, 10))
 
-    //     }
-    //     getLosers()
-    //     getGainers()
+        }
+        getLosers()
+        getGainers()
 
-    // }
-    //     , [])
+    }
+        , [])
 
     useEffect(() => {
 

@@ -59,7 +59,7 @@ function Watchlist() {
     return (
         <div className='watchlist'>
             <h1>My WatchList</h1>
-            <hr />
+
             {watchlist.map((s, i) => {
                 return (
                     <StockCard

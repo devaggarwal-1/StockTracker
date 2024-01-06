@@ -27,13 +27,14 @@
     flex-grow: 1;
     padding-bottom: 1rem;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
 }
 
 .title {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    margin-top: -20px;
 }
 
 .title h1 {
@@ -97,6 +98,10 @@
         0 2px 4px -1px rgba(0, 0, 0, 0.06);
     text-transform: capitalize;
     text-rendering: optimizeLegibility;
+}
+
+.authSection button:hover {
+    background: #0d4389;
 }
 
 .authSection .instructions {

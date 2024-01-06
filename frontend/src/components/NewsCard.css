@@ -24,7 +24,7 @@
     cursor: pointer;
     transition: border 200ms ease-in, box-shadow 200ms ease-in;
     width: 90%;
-    /* border: 2px solid red; */
+    height: 100%;
 }
 
 .card-img {
@@ -34,13 +34,13 @@
 }
 
 .card-title {
-    padding: 0.5rem;
-
+    padding: 0.3rem;
+    font-size: 20px;
 }
 
 .card-desc {
-    padding: 0 0.5rem;
-    font-size: 16px;
+    padding: 0 0.3rem;
+    font-size: 14px;
 }
 
 .card-link {

@@ -240,10 +240,10 @@ function StockPage() {
 
                     <div className="price-chart-container">
 
-                        <div className="priceContainer">
+                        <div className="stock-page-priceContainer">
                             <h2 className='stock-price'>${stock.price}</h2>
-                            <p className="change-percentage">{parseFloat(stock.changesPercentage).toFixed(2)}%</p>
-                            <p className="price-change">{stock.change} Today</p>
+                            <p className={stock.changesPercentage > 0 ? "change-percentage green" : "change-percentage red"}>{parseFloat(stock.changesPercentage).toFixed(2)}%</p>
+                            <p className={stock.changesPercentage > 0 ? "price-change green" : "price-change red"}>{stock.change} Today</p>
                         </div>
 
                         <div className="stock-chart">

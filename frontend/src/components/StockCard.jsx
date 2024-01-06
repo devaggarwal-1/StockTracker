@@ -19,6 +19,7 @@ function StockCard({ symbol, price, change, changesPercentage, inWatchlist, logg
     const changePositive = changesPercentage > 0
     changesPercentage = parseFloat(changesPercentage).toFixed(2)
     change = parseFloat(change).toFixed(2)
+    console.log(change)
 
     //when the page loads
     useEffect(() => {
@@ -85,7 +86,7 @@ function StockCard({ symbol, price, change, changesPercentage, inWatchlist, logg
         <div className={hidden ? "stock-card hidden" : "stock-card"}>
             <div className="stock-card-container" onClick={handleClick}>
                 <h3 className='stock-name'>{symbol}</h3>
-                <p className="stock-price">${price}</p>
+                <p className="stock-price">${parseFloat(price).toFixed(2)}</p>
                 <div className={changePositive ? "price-change positive" : "price-change negative"} >
                     <FontAwesomeIcon icon={changePositive ? faCircleArrowUp : faCircleArrowDown}></FontAwesomeIcon>
                     <p className='stock-price-change'>${change}</p>
