@@ -9,12 +9,12 @@ const corsOptions = {
 }
 
 
-const home = require('./routers/homerouter')
-const register = require("./routers/registerrouter")
-const login = require("./routers/loginrouter")
-const stocks = require("./routers/stocksrouter")
-const watchlist = require("./routers/watchlistrouter")
-const test = require("./routers/testrouter")
+const home = require('./api/homerouter')
+const register = require("./api/registerrouter")
+const login = require("./api/loginrouter")
+const stocks = require("./api/stocksrouter")
+const watchlist = require("./api/watchlistrouter")
+const test = require("./api/testrouter")
 
 //middlewares
 const app = express()
