@@ -19,7 +19,7 @@ function StockCard({ symbol, price, change, changesPercentage, inWatchlist, logg
     const changePositive = changesPercentage > 0
     changesPercentage = parseFloat(changesPercentage).toFixed(2)
     change = parseFloat(change).toFixed(2)
-    console.log(change)
+
 
     //when the page loads
     useEffect(() => {
