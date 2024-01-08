@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const CustomerModel = require('./models/customer')
 const cors = require('cors')
 const corsOptions = {
-    origin: '/',
+    origin: 'https://stock-tracker-o6f622eg5-devaggarwal-1.vercel.app/',
     credentials: true,            //access-control-allow-credentials:true
     optionSuccessStatus: 200
 }
