@@ -11,25 +11,33 @@ function News() {
     useEffect(() => {
 
         const getNews = async () => {
-            const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${import.meta.env.VITE_NEWS_API_KEY}`
+            const url = `https://newsdata.io/api/1/news?apikey=pub_361055f5f2ed74f9ba3d033c47cba297cc48b&size=10&country=us&full_content=1&prioritydomain=top&language=en`
             const res = await fetch(url)
-            const data = await res.json()
-            await setTopNews((data.articles.filter((s) => s.urlToImage && s.description)).slice(0, 4))
+            const json = await res.json()
+            const data = json.results
+            // console.log(data)    
+            // await setTopNews(data)
+            await setTopNews((data.filter((s) => s.image_url && s.description)).slice(0, 4))
         }
 
         const getCryptoNews = async () => {
-            const url = `https://newsapi.org/v2/everything?q=cryptocurrency&sortBy=popularity&pageSize=10&apiKey=${import.meta.env.VITE_NEWS_API_KEY}`
+            const url = `https://newsdata.io/api/1/news?apikey=pub_361055f5f2ed74f9ba3d033c47cba297cc48b&size=10&country=us&full_content=1&prioritydomain=top&q=cryptocurrency`
             const res = await fetch(url)
-            const data = await res.json()
-            await setCryptoNews((data.articles.filter((s) => s.urlToImage && s.description)).slice(0, 4))
+            const json = await res.json()
+            const data = json.results
+            console.log(data)
+            // await setTopNews(data)
+            await setCryptoNews((data.filter((s) => s.image_url && s.description)).slice(0, 4))
         }
 
         const getFinanceNews = async () => {
-            const url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${import.meta.env.VITE_NEWS_API_KEY}`
+            const url = `https://newsdata.io/api/1/news?apikey=pub_361055f5f2ed74f9ba3d033c47cba297cc48b&size=10&country=us&full_content=1&prioritydomain=top&q=finance`
             const res = await fetch(url)
-            const data = await res.json()
+            const json = await res.json()
+            const data = json.results
             console.log(data)
-            await setFinanceNews((data.articles.filter((s) => s.urlToImage && s.description)).slice(0, 4))
+            // await setTopNews(data)
+            await setFinanceNews((data.filter((s) => s.image_url && s.description)).slice(0, 4))
         }
 
         getNews()
@@ -37,7 +45,6 @@ function News() {
         getFinanceNews()
     }
         , [])
-
 
 
     return (
@@ -49,14 +56,14 @@ function News() {
                 <div className="newsContainer">
                     {topNews.map((article, i) => {
 
-                        // console.log(article)
+                        console.log(article)
                         return (
                             <NewsCard
                                 key={i}
                                 title={article.title}
                                 desc={article.description}
-                                url={article.url}
-                                image={article.urlToImage}
+                                url={article.link}
+                                image={article.image_url}
                             />
                         )
                     })}
@@ -79,8 +86,8 @@ function News() {
                                 key={i}
                                 title={article.title}
                                 desc={article.description}
-                                url={article.url}
-                                image={article.urlToImage}
+                                url={article.link}
+                                image={article.image_url}
                             />
                         )
                     })}
@@ -99,8 +106,8 @@ function News() {
                                 key={i}
                                 title={article.title}
                                 desc={article.description}
-                                url={article.url}
-                                image={article.urlToImage}
+                                url={article.link}
+                                image={article.image_url}
                             />
                         )
                     })}

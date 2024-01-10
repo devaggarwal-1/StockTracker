@@ -22,18 +22,21 @@
 
 .stock-card-container .stock-name {
     font-weight: 400;
-    font-size: 25px;
+    font-size: 1rem;
     width: 20%;
 }
 
 .stock-card-container .stock-price {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 0.8rem;
     width: 20%;
 }
 
+.stock-card-container .price-change {}
+
 .stock-card-container .price-change.positive {
     color: green;
+
 }
 
 .stock-card-container .price-change.negative {
@@ -57,4 +60,17 @@
 
 .stock-card-container .addToWatchlist-btn:hover {
     color: gray;
+}
+
+@media screen and (max-width: 600px) {
+    .stock-card-container {
+        flex-direction: column;
+        /* border: 2px solid red; */
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .stock-card-container .addToWatchlist-btn {
+        font-size: 18px;
+    }
 }

@@ -14,7 +14,9 @@
     position: absolute;
     padding: 30px;
     justify-content: space-between;
+    align-items: center;
 }
+
 
 .nav-links {
     display: flex;
@@ -27,7 +29,6 @@
     gap: 10px;
     justify-content: center;
     align-items: center;
-
 }
 
 .searchContainer input {
@@ -66,6 +67,9 @@
 }
 
 
+.logo {
+    text-decoration: none;
+}
 
 .logo h2 {
     background-image: linear-gradient(45deg, #304ffe, #29e6a7);
@@ -74,6 +78,7 @@
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
+
 }
 
 
@@ -97,4 +102,111 @@
 .nav-links li.animate a:before {
     left: 50%;
     transform: translateX(-50%);
+}
+
+.toggle_btn {
+    display: none;
+}
+
+.dropdown_menu {
+    position: absolute;
+    right: 0rem;
+    top: 2rem;
+    background: white;
+    z-index: 999;
+    width: 150px;
+    display: none;
+    transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
+}
+
+.dropdown_menu li {
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.dropdown_menu li a {
+    color: black;
+    text-decoration: none;
+}
+
+.dropdown_menu .searchContainer {
+
+    padding: 0;
+    gap: 5px;
+    width: 100%;
+    padding: 0 0.5rem;
+
+}
+
+.dropdown_menu .searchContainer input {
+    width: 100%;
+    font-size: 0.5rem;
+    padding: 0.2rem;
+
+}
+
+.dropdown_menu .searchContainer button {
+    width: 50%;
+    font-size: 0.3rem;
+    padding: 0.3rem;
+}
+
+/* For all screens */
+
+@media screen and (max-width: 850px) {
+
+    .navbar .searchContainer,
+    .nav-links {
+        display: none;
+    }
+
+    .navbar {
+        width: 100%;
+        position: relative;
+    }
+
+    .navbar-container {
+        padding: 1rem;
+    }
+
+    .logo {
+        font-size: 0.6rem;
+
+    }
+
+    .toggle_btn {
+        display: block;
+        color: black;
+    }
+
+
+
+    .dropdown_menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+        height: 100vh;
+        padding-top: 0.3rem;
+        font-size: 0.8rem;
+    }
+
+    .dropdown_menu.close {
+        display: none;
+    }
+
+    .dropdown_menu li {
+
+        padding: 0;
+    }
+
+    .dropdown_menu .searchContainer {
+        /* border: 2px solid red; */
+    }
 }

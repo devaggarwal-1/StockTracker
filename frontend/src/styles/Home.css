@@ -22,7 +22,7 @@
     display: flex;
     border-radius: 5px;
     margin-bottom: 30px;
-    height: 9%;
+    height: 5%;
     /* width: 80%; */
 }
 
@@ -110,10 +110,7 @@
     margin-left: 150px;
 }
 
-.gainers {
-    width: 100%;
-}
-
+.gainers,
 .losers {
     width: 100%;
 }
@@ -138,4 +135,56 @@
     to {
         transform: translateX(-100%);
     }
+}
+
+/* Media queries */
+
+@media screen and (max-width: 600px) {
+
+
+
+    .home {
+        /* width: 95%; */
+        padding: 4vh 0;
+        /* border: 2px solid red; */
+        height: fit-content;
+        /* width: auto; */
+
+    }
+
+    .ticker-tape {
+        height: 3%;
+    }
+
+    .ticker-img {
+        width: 30%;
+        height: 30%;
+    }
+
+    .gainers_losers_Container {
+        gap: 20px;
+        /* border: 2px solid red; */
+    }
+
+
+    .gainers,
+    .losers {
+        width: 50%;
+        /* border: 2px solid red; */
+
+    }
+
+    .stockTable {
+        margin: 0;
+        padding: 0;
+    }
+
+    .home_container h2 {
+        font-size: 12px;
+        /* border: 2px solid red; */
+        margin: 0 0 10px 0;
+        width: 100%;
+    }
+
+
 }

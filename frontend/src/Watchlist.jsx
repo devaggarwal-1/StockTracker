@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './styles/watchlist.css'
 
-import WatchlistCard from './components/WatchlistCard'
 import StockCard from './components/StockCard'
 import Cookies from 'js-cookie'
 import axios from './api/axios'

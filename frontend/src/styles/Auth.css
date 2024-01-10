@@ -5,6 +5,7 @@
     align-items: center;
     background: #f1f5f9;
     color: black;
+
 }
 
 .authSection {
@@ -61,7 +62,7 @@
 .authSection button,
 .authSection textarea {
     font-family: inherit;
-    font-size: 1rem;
+    font-size: 0.7rem;
     font-weight: 400;
     line-height: inherit;
     width: 100%;
@@ -160,4 +161,24 @@
     display: flex;
     align-items: center;
     position: relative;
+}
+
+/* For all screens */
+
+@media screen and (max-width: 500px) {
+    .authSection {
+        width: 80%;
+        /* font-size: 1rem; */
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .authSection {
+        width: 80%;
+        /* font-size: 1rem; */
+    }
+
+    .authSection button {
+        font-size: 0.7rem;
+    }
 }
