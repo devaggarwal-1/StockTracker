@@ -86,15 +86,16 @@ function Navbar() {
                             </div>
                         </div>
                     </div >
+
                     <div className={toggleClicked ? "dropdown_menu open" : "dropdown_menu close"}  >
                         <form className='searchContainer' onSubmit={handleSearch}>
 
                             <input type="text" placeholder='Search By Ticker Symbol...' className='searchTicker' onChange={(e) => setStockSearch(e.target.value)} />
                             <button type='submit'>Search</button>
                         </form>
-                        <li className="animate"><Link to='/'>Home</Link></li>
-                        <li className="animate"><Link to='/news'>News</Link></li>
-                        <li className='animate'><Link to='/watchlist'>WatchList</Link></li>
+                        <li className="animate"><Link to='/' onClick={handleDropDownClick}>Home</Link></li>
+                        <li className="animate"><Link to='/news' onClick={handleDropDownClick}>News</Link></li>
+                        <li className='animate'><Link to='/watchlist' onClick={handleDropDownClick}>WatchList</Link></li>
                         <li className='animate'><a href='' onClick={handleLogout}>Logout</a></li>
 
                     </div>
