@@ -8,8 +8,6 @@ Stock Search: Utilize the powerful stock search feature to get real-time informa
 WatchList: Easily track and add your stock to your watchlist with an intuitive and user-friendly interface.
 Real-time Updates: Stay informed with real-time updates on stock prices and performance.
 
-
-# Features
 - User Authentication: Secure user registration and login functionality to personalize stock tracking.
 
 - Stock Search: Utilize the powerful stock search feature to get real-time information on a wide range of stocks.
