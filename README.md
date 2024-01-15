@@ -1,5 +1,5 @@
 # StockTracker
-# [Live Demo](https://stock-tracker-o6f622eg5-devaggarwal-1.vercel.app/)
+# [Live Demo](https://stock-tracker-neon.vercel.app/)
 StockTracker is a full-stack web application that allows users to search and track stocks efficiently.The platform is built using React for the front end, Node.js and Express.js for the backend, and MongoDB as the database.
 
 # Features
