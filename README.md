@@ -12,4 +12,4 @@ StockTracker is a full-stack web application that allows users to search and tra
 - Real-time Updates: Stay informed with real-time updates on stock prices and performance.
 
 
-# This is still a work in progress. Lots of changes to make and new functionalities to work on :)
+This is still a work in progress. Lots of changes to make and new functionalities to work on :)
